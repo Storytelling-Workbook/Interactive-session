@@ -513,9 +513,15 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
   color: var(--navy); font-size: 52px; font-weight: 800;
 }
 .story-col-write {
-  position: absolute; top: 168px; left: 50px; right: 50px; bottom: 50px;
-  border: 1px solid #C8C8C8; background: white; overflow: hidden;
-  transition: box-shadow 0.22s ease, border-color 0.22s ease;
+  position: absolute; top: 188px; left: 50px; right: 50px; bottom: 60px;
+  background: var(--navy); overflow: hidden;
+  border: none;
+  transition: box-shadow 0.22s ease;
+}
+.story-col-write-circle {
+  position: absolute; bottom: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: rgba(148,220,212,0.1); pointer-events: none;
 }
 .story-col-write::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
@@ -523,23 +529,22 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
 }
 .story-col-write:focus-within::before { height: 7px; }
 .story-col-write:focus-within {
-  border-color: rgba(148,220,212,0.6);
-  box-shadow: 0 0 0 3px rgba(148,220,212,0.1), 0 2px 16px rgba(148,220,212,0.08);
+  box-shadow: 0 0 0 3px rgba(148,220,212,0.2), 0 4px 32px rgba(148,220,212,0.1);
 }
 .story-col-write-label {
-  position: absolute; top: 16px; left: 18px; right: 16px;
-  color: rgba(58,74,85,0.65); font-size: 13px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.14em; pointer-events: none;
+  position: absolute; top: 16px; left: 22px; right: 16px;
+  color: rgba(148,220,212,0.7); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.16em; pointer-events: none;
 }
 .story-col-write textarea {
   position: absolute; top: 44px; left: 8px; right: 8px; bottom: 8px;
   border: none; outline: none; resize: none;
   font-family: 'Avenir Next', 'Nunito Sans', Arial, sans-serif;
-  font-size: 20px; color: var(--body); line-height: 1.7;
-  background: transparent; padding: 8px 10px; caret-color: var(--teal);
+  font-size: 20px; color: var(--cream); line-height: 1.7;
+  background: transparent; padding: 8px 14px; caret-color: var(--teal);
 }
 .story-col-write textarea::placeholder {
-  color: rgba(60,80,90,0.45); font-style: italic; font-weight: 300;
+  color: rgba(240,238,214,0.3); font-style: italic; font-weight: 300;
   transition: opacity 0.2s ease;
 }
 .story-col-write textarea:focus::placeholder { opacity: 0.4; }
@@ -1172,6 +1177,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
           <div class="story-col-right-title">Your Story</div>
         </div>
         <div class="story-col-write">
+          <div class="story-col-write-circle"></div>
           <div class="story-col-write-label">Write your own story here</div>
           <textarea name="s15story" placeholder="Draw on the example — write a story from your own experience or organisation that captures the theme of this chapter…"></textarea>
         </div>
@@ -1199,6 +1205,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
           <div class="story-col-right-title">Your Story</div>
         </div>
         <div class="story-col-write">
+          <div class="story-col-write-circle"></div>
           <div class="story-col-write-label">Write your own story here</div>
           <textarea name="s16story" placeholder="Draw on the example — write a story from your own experience or organisation that captures the theme of this chapter…"></textarea>
         </div>
@@ -1226,6 +1233,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
           <div class="story-col-right-title">Your Story</div>
         </div>
         <div class="story-col-write">
+          <div class="story-col-write-circle"></div>
           <div class="story-col-write-label">Write your own story here</div>
           <textarea name="s17story" placeholder="Draw on the example — write a story from your own experience or organisation that captures the theme of this chapter…"></textarea>
         </div>
@@ -1253,6 +1261,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
           <div class="story-col-right-title">Your Story</div>
         </div>
         <div class="story-col-write">
+          <div class="story-col-write-circle"></div>
           <div class="story-col-write-label">Write your own story here</div>
           <textarea name="s18story" placeholder="Draw on the example — write a story from your own experience or organisation that captures the theme of this chapter…"></textarea>
         </div>
@@ -1279,6 +1288,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
           <div class="story-col-right-title">Your Story</div>
         </div>
         <div class="story-col-write">
+          <div class="story-col-write-circle"></div>
           <div class="story-col-write-label">Write your own story here</div>
           <textarea name="s19story" placeholder="Draw on the example — write a story from your own experience or organisation that captures the theme of this chapter…"></textarea>
         </div>
