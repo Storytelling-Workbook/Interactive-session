@@ -458,11 +458,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
 /* ===== SLIDES 15–19 — STORY SPLIT LAYOUT ===== */
 .story-col-left {
   position: absolute; top: 0; left: 0; width: 960px; bottom: 0;
-  background: var(--teal); overflow: hidden;
+  background: var(--navy); overflow: hidden;
+}
+.story-col-left-circle {
+  position: absolute; top: -60px; right: -60px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: rgba(148,220,212,0.1); pointer-events: none;
 }
 .story-col-sep {
   position: absolute; top: 0; left: 960px; width: 6px; bottom: 0;
-  background: var(--teal-d);
+  background: #1a2230;
 }
 .story-col-right {
   position: absolute; top: 0; left: 966px; right: 0; bottom: 0;
@@ -470,30 +475,30 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
 }
 .story-col-tag {
   position: absolute; top: 34px; left: 67px;
-  color: rgba(35,44,58,0.5); font-size: 13px; font-weight: 700;
+  color: rgba(148,220,212,0.6); font-size: 13px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.2em;
 }
 .story-col-chapter {
   position: absolute; top: 62px; left: 67px;
-  color: var(--navy); font-size: 18px; font-weight: 700;
+  color: var(--teal); font-size: 18px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.09em;
 }
 .story-col-title {
   position: absolute; top: 94px; left: 67px; right: 50px;
-  color: var(--navy); font-size: 44px; font-weight: 800; line-height: 1.1;
+  color: white; font-size: 44px; font-weight: 800; line-height: 1.1;
 }
 .story-col-divider {
   position: absolute; top: 214px; left: 67px;
-  width: 50px; height: 4px; background: rgba(35,44,58,0.3);
+  width: 50px; height: 4px; background: rgba(148,220,212,0.4);
 }
 .story-col-body {
   position: absolute; top: 236px; left: 67px; right: 50px; bottom: 70px;
-  color: var(--navy); font-size: 18px; line-height: 1.68; overflow: hidden;
+  color: #BBCCD0; font-size: 18px; line-height: 1.68; overflow: hidden;
 }
 .story-col-body p { margin-bottom: 14px; }
 .story-col-source {
   position: absolute; bottom: 32px; left: 67px; right: 50px;
-  color: rgba(35,44,58,0.45); font-size: 14px; font-style: italic;
+  color: rgba(148,220,212,0.45); font-size: 14px; font-style: italic;
 }
 .story-col-right-header {
   position: absolute; top: 0; left: 0; right: 0; height: 148px;
@@ -513,38 +518,34 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
   color: var(--navy); font-size: 52px; font-weight: 800;
 }
 .story-col-write {
-  position: absolute; top: 188px; left: 50px; right: 50px; bottom: 60px;
-  background: var(--navy); overflow: hidden;
-  border: none;
-  transition: box-shadow 0.22s ease;
+  position: absolute; top: 168px; left: 50px; right: 50px; bottom: 50px;
+  border: 1px solid #C8C8C8; background: white; overflow: hidden;
+  transition: box-shadow 0.22s ease, border-color 0.22s ease;
 }
-.story-col-write-circle {
-  position: absolute; bottom: -40px; right: -40px;
-  width: 160px; height: 160px; border-radius: 50%;
-  background: rgba(148,220,212,0.1); pointer-events: none;
-}
+.story-col-write-circle { display: none; }
 .story-col-write::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
   height: 5px; background: var(--teal); transition: height 0.22s ease;
 }
 .story-col-write:focus-within::before { height: 7px; }
 .story-col-write:focus-within {
-  box-shadow: 0 0 0 3px rgba(148,220,212,0.2), 0 4px 32px rgba(148,220,212,0.1);
+  border-color: rgba(148,220,212,0.6);
+  box-shadow: 0 0 0 3px rgba(148,220,212,0.1), 0 2px 16px rgba(148,220,212,0.08);
 }
 .story-col-write-label {
-  position: absolute; top: 16px; left: 22px; right: 16px;
-  color: rgba(148,220,212,0.7); font-size: 13px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.16em; pointer-events: none;
+  position: absolute; top: 16px; left: 18px; right: 16px;
+  color: rgba(58,74,85,0.65); font-size: 13px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.14em; pointer-events: none;
 }
 .story-col-write textarea {
   position: absolute; top: 44px; left: 8px; right: 8px; bottom: 8px;
   border: none; outline: none; resize: none;
   font-family: 'Avenir Next', 'Nunito Sans', Arial, sans-serif;
-  font-size: 20px; color: var(--cream); line-height: 1.7;
-  background: transparent; padding: 8px 14px; caret-color: var(--teal);
+  font-size: 20px; color: var(--body); line-height: 1.7;
+  background: transparent; padding: 8px 10px; caret-color: var(--teal);
 }
 .story-col-write textarea::placeholder {
-  color: rgba(240,238,214,0.3); font-style: italic; font-weight: 300;
+  color: rgba(60,80,90,0.45); font-style: italic; font-weight: 300;
   transition: opacity 0.2s ease;
 }
 .story-col-write textarea:focus::placeholder { opacity: 0.4; }
@@ -1159,6 +1160,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
     <!-- ==================== SLIDE 15 — CHAPTER ONE STORY ==================== -->
     <div class="slide" id="slide-15">
       <div class="story-col-left">
+        <div class="story-col-left-circle"></div>
         <div class="story-col-tag">Story</div>
         <div class="story-col-chapter">Chapter One</div>
         <div class="story-col-title">Roots &amp;<br>Identity</div>
@@ -1187,6 +1189,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
     <!-- ==================== SLIDE 16 — CHAPTER TWO STORY ==================== -->
     <div class="slide" id="slide-16">
       <div class="story-col-left">
+        <div class="story-col-left-circle"></div>
         <div class="story-col-tag">Story</div>
         <div class="story-col-chapter">Chapter Two</div>
         <div class="story-col-title">Fault Lines</div>
@@ -1215,6 +1218,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
     <!-- ==================== SLIDE 17 — CHAPTER THREE STORY ==================== -->
     <div class="slide" id="slide-17">
       <div class="story-col-left">
+        <div class="story-col-left-circle"></div>
         <div class="story-col-tag">Story</div>
         <div class="story-col-chapter">Chapter Three</div>
         <div class="story-col-title">Reasons to<br>Believe</div>
@@ -1243,6 +1247,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
     <!-- ==================== SLIDE 18 — CHAPTER FOUR STORY ==================== -->
     <div class="slide" id="slide-18">
       <div class="story-col-left">
+        <div class="story-col-left-circle"></div>
         <div class="story-col-tag">Story</div>
         <div class="story-col-chapter">Chapter Four</div>
         <div class="story-col-title">No Going Back</div>
@@ -1271,6 +1276,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #15120f; f
     <!-- ==================== SLIDE 19 — CHAPTER FIVE STORY ==================== -->
     <div class="slide" id="slide-19">
       <div class="story-col-left">
+        <div class="story-col-left-circle"></div>
         <div class="story-col-tag">Story</div>
         <div class="story-col-chapter">Chapter Five</div>
         <div class="story-col-title">Imagine When</div>
