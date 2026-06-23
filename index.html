@@ -1694,6 +1694,7 @@ async function generatePDF() {
       pdf.addImage(imgData, 'JPEG', 0, 0, 1920, 1080);
 
       // Add interactive AcroForm text fields
+      // jsPDF uses top-left origin (same as CSS/image), so y is distance from top
       fieldData.forEach(field => {
         try {
           const tf = new pdf.AcroFormTextField();
@@ -1701,10 +1702,10 @@ async function generatePDF() {
           tf.value = field.value;
           tf.defaultValue = field.value;
           tf.x = field.x;
-          tf.y = 1080 - field.y - field.h;
+          tf.y = field.y;
           tf.width  = field.w;
           tf.height = field.h;
-          tf.fontSize = 0;
+          tf.fontSize = 14;
           tf.multiline = true;
           pdf.addField(tf);
         } catch(e) { /* AcroForm not supported in this build */ }
