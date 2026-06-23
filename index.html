@@ -1694,7 +1694,7 @@ async function generatePDF() {
       pdf.addImage(imgData, 'JPEG', 0, 0, 1920, 1080);
 
       // Add interactive AcroForm text fields
-      // jsPDF AcroForm uses raw PDF coords: y is distance from page BOTTOM, not top
+      // jsPDF AcroForm uses top-left origin (same as CSS) — it handles y-flip internally
       fieldData.forEach(field => {
         try {
           const tf = new pdf.AcroFormTextField();
@@ -1702,7 +1702,7 @@ async function generatePDF() {
           tf.value = field.value;
           tf.defaultValue = field.value;
           tf.x = field.x;
-          tf.y = 1080 - field.y - field.h;
+          tf.y = field.y;
           tf.width  = field.w;
           tf.height = field.h;
           tf.fontSize = 14;
