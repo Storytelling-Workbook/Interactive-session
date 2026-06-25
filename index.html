@@ -1825,7 +1825,7 @@ async function generatePDF() {
           tf.y      = field.y * FIELD_SCALE;
           tf.width  = field.w * FIELD_SCALE;
           tf.height = field.h * FIELD_SCALE;
-          tf.fontSize = 22;
+          tf.fontSize = 40;
           tf.multiline = true;
           pdf.addField(tf);
         } catch(e) { /* AcroForm not supported in this build */ }
